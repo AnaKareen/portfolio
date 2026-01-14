@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #0d0d0d;
+  color: white;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  padding: 60px;
+  gap: 80px;
+  align-items: center;
+}
+
+/* CARD */
+.card {
+  background: white;
+  color: black;
+  border-radius: 25px;
+  width: 280px;
+  padding: 20px;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 20px;
+  background: #ff4d00;
+}
+
+.card h2 {
+  margin-top: 15px;
+  font-weight: 800;
+}
+
+.card p {
+  font-size: 14px;
+  color: #555;
+  margin-top: 10px;
+}
+
+/* HERO */
+.hero h1 {
+  font-size: 90px;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.hero h1 span {
+  color: rgba(255,255,255,0.2);
+  display: block;
+}
+
+.hero p {
+  margin-top: 20px;
+  max-width: 500px;
+  color: #aaa;
+  font-size: 15px;
+}
+
+.stats {
+  display: flex;
+  gap: 60px;
+  margin-top: 40px;
+}
+
+.stat h2 {
+  font-size: 48px;
+}
+
+.stat p {
+  font-size: 13px;
+  color: #aaa;
+}
+
+/* Buttons */
+.buttons {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.buttons button {
+  border: none;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.orange {
+  background: #ff4d00;
+  color: white;
+}
+
+.green {
+  background: #b4f000;
+  color: black;
+}
+
+.white {
+  background: white;
+  color: black;
+}
