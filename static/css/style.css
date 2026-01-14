@@ -307,3 +307,46 @@ body {
     grid-template-columns: 1fr;
   }
 }
+/* =========================================
+   PROJECTS SECTION
+========================================= */
+
+.projects {
+  padding: 80px 10%;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  max-width: 1000px;
+}
+
+.project-card {
+  background: rgba(255,255,255,0.03);
+  padding: 30px;
+  border-radius: 25px;
+  transition: 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255,255,255,0.06);
+}
+
+.project-card h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.project-card p {
+  color: #aaa;
+  line-height: 1.6;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
