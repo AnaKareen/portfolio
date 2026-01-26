@@ -372,3 +372,122 @@ body {
   color: black;
   transform: translateY(-2px);
 }
+
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+  transition: all 0.6s ease;
+}
+
+.page.active {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* Estilo fotografía */
+.photo-portfolio {
+  padding: 160px 10%;
+}
+
+.photo-portfolio h1 {
+  font-size: 70px;
+  font-weight: 800;
+  margin-bottom: 60px;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.photo-grid img {
+  width: 100%;
+  border-radius: 20px;
+  transition: 0.4s ease;
+}
+
+.photo-grid img:hover {
+  transform: scale(1.03);
+}
+/* === CAROUSEL FOTOGRAFÍA === */
+
+.carousel {
+  margin-top: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.carousel-track {
+  width: 600px;
+  max-width: 90vw;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  animation: fade 0.6s ease;
+}
+
+.slide.active {
+  display: block;
+}
+
+.slide img {
+  width: 100%;
+  border-radius: 25px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+.caption {
+  margin-top: 15px;
+  background: rgba(255,255,255,0.05);
+  padding: 15px 20px;
+  border-radius: 18px;
+  backdrop-filter: blur(10px);
+}
+
+.caption h4 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.caption p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Botones */
+.nav-btn {
+  background: rgba(255,255,255,0.08);
+  border: none;
+  color: white;
+  font-size: 30px;
+  padding: 10px 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-btn:hover {
+  background: white;
+  color: black;
+}
+
+/* Animación */
+@keyframes fade {
+  from {opacity: 0; transform: scale(0.98);}
+  to {opacity: 1; transform: scale(1);}
+}
