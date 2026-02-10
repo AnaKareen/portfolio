@@ -11,8 +11,6 @@ fetch("/api/photos")
 
 function renderGallery() {
   const gallery = document.getElementById("photoGallery");
-  if (!gallery) return;
-
   gallery.innerHTML = "";
 
   photos.forEach((photo, i) => {
@@ -20,7 +18,7 @@ function renderGallery() {
     fig.className = "photo-item";
     fig.innerHTML = `
       <img src="${photo.src}" loading="lazy" />
-      <figcaption></figcaption>
+      <figcaption>${photo.caption || ""}</figcaption>
     `;
     fig.addEventListener("click", () => openViewer(i));
     gallery.appendChild(fig);
@@ -49,3 +47,22 @@ function prevPhoto() {
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeViewer();
 });
+
+/* 👇 ESTO VA AQUÍ ABAJO */
+document.addEventListener("load", (e) => {
+  if (e.target.tagName === "IMG") {
+    const img = e.target;
+    const ratio = img.naturalWidth / img.naturalHeight;
+
+    const figure = img.closest(".photo-item");
+    if (!figure) return;
+
+    if (ratio > 1.6) {
+      figure.classList.add("landscape");   // panorámica
+    } else if (ratio < 0.8) {
+      figure.classList.add("portrait");    // vertical
+    } else {
+      figure.classList.add("square");      // 1:1
+    }
+  }
+}, true);
