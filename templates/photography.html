@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Photography | Ana Karen Vargas</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/photography.css">
+</head>
+<body>
+
+<header class="navbar">
+  <a href="/" class="logo">AKVH</a>
+  <nav>
+    <a href="/">Home</a>
+  </nav>
+</header>
+
+<section class="photo-hero">
+  <h1>PHOTOGRAPHY</h1>
+  <p>
+    Visual fragments of moments that didn’t ask to be perfect,  
+    only to be felt.
+  </p>
+</section>
+
+<section class="photo-gallery" id="photoGallery">
+  <!-- Las fotos se renderizan desde Google Sheet -->
+</section>
+
+<!-- VIEWER FULLSCREEN -->
+<div class="photo-viewer" id="photoViewer">
+  <button class="viewer-close" onclick="closeViewer()">✕</button>
+  <button class="viewer-nav left" onclick="prevPhoto()">‹</button>
+
+  <div class="viewer-content">
+    <img id="viewerImage" src="" alt="">
+    <p id="viewerCaption"></p>
+  </div>
+
+  <button class="viewer-nav right" onclick="nextPhoto()">›</button>
+</div>
+
+<script src="/static/js/photography.js"></script>
+
+</body>
+</html>

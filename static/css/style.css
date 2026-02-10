@@ -1,6 +1,9 @@
-/* =========================================
-   RESET GENERAL Y CONFIGURACIÓN BASE
-========================================= */
+:root {
+  --bg: #0b0d10;
+  --glass: rgba(255,255,255,0.06);
+  --muted: #9ca3af;
+  --accent: #9b8cff;   /* nuevo color suave premium */
+}
 
 * {
   margin: 0;
@@ -10,33 +13,26 @@
 }
 
 body {
-  background: #0f0f0f; /* Fondo oscuro moderno */
-  color: #ffffff;
+  background: radial-gradient(circle at top, #12141a, #050608);
+  color: white;
   min-height: 100vh;
 }
 
-/* =========================================
-   NAVBAR (barra superior flotante)
-========================================= */
-
+/* NAVBAR */
 .navbar {
   position: fixed;
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
-  max-width: 1100px;
-
-  background: rgba(255, 255, 255, 0.05); /* Efecto glass */
-  backdrop-filter: blur(10px);
-
-  padding: 15px 30px;
-  border-radius: 20px;
-
+  max-width: 1200px;
+  padding: 14px 28px;
+  border-radius: 22px;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(14px);
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   z-index: 100;
 }
 
@@ -46,179 +42,134 @@ body {
 }
 
 .navbar nav a {
-  margin-left: 25px;
+  margin-left: 24px;
+  color: var(--muted);
   text-decoration: none;
-  color: #bdbdbd;
-  font-weight: 500;
-  transition: 0.3s ease;
+  transition: .3s;
 }
 
 .navbar nav a:hover {
   color: white;
 }
 
-/* =========================================
-   CONTENEDOR PRINCIPAL (layout general)
-========================================= */
-
+/* HERO */
 .hero-container {
   display: grid;
-  grid-template-columns: 320px 1fr; /* Card izquierda + contenido derecha */
-  gap: 60px;
-
-  align-items: flex-start;
-
-  padding: 140px 10%;
+  grid-template-columns: 320px 1fr;
+  gap: 80px;
+  padding: 160px 10%;
 }
 
-/* =========================================
-   TARJETA PERSONAL (STICKY)
-========================================= */
-
 .profile-card {
-  position: sticky;   /* Hace que se quede fija al hacer scroll */
-  top: 120px;         /* Distancia desde arriba */
-
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
-
-  padding: 25px;
-  border-radius: 25px;
-
+  position: sticky;
+  top: 120px;
+  background: var(--glass);
+  padding: 24px;
+  border-radius: 26px;
+  backdrop-filter: blur(16px);
   text-align: center;
-
-  transition: transform 0.3s ease;
+  transition: .4s;
 }
 
 .profile-card:hover {
-  transform: translateY(-5px); /* efecto premium al pasar mouse */
+  transform: translateY(-6px);
 }
 
 .profile-card img {
   width: 100%;
   border-radius: 20px;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
-
-.profile-card h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
-}
-
-.profile-card p {
-  font-size: 14px;
-  color: #aaa;
-}
-
-/* =========================================
-   HERO DERECHO (texto principal)
-========================================= */
 
 .hero-content h1 {
-  font-size: 80px;
+  font-size: 88px;
   font-weight: 800;
-  line-height: 1;
+  line-height: .95;
 }
 
 .hero-content h1 span {
-  color: rgba(255, 255, 255, 0.15); /* efecto elegante tipo Framer */
+  color: rgba(255,255,255,0.12);
 }
 
 .description {
-  max-width: 700px;
-  margin: 30px 0;
+  max-width: 720px;
+  margin: 32px 0;
+  color: var(--muted);
   line-height: 1.7;
-  color: #bdbdbd;
 }
 
-/* =========================================
-   STATS (números grandes debajo del hero)
-========================================= */
-
+/* STATS */
 .stats {
   display: flex;
-  gap: 40px;
-  margin-top: 10px;
+  gap: 50px;
+  margin: 20px 0 40px;
 }
 
 .stat h2 {
-  font-size: 40px;
-  font-weight: 700;
+  font-size: 42px;
 }
 
 .stat p {
   font-size: 12px;
-  color: #888;
-  letter-spacing: 1px;
+  color: #7c7f87;
 }
 
-/* =========================================
-   EXPERIENCE SECTION
-========================================= */
-
-.experience {
-  padding: 80px 10%;
+/* CTA BUTTONS */
+.hero-actions {
+  display: flex;
+  gap: 20px;
 }
 
-.experience h2 {
-  font-size: 60px;
+.hero-btn {
+  padding: 14px 32px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: .4px;
+  transition: .35s ease;
+}
+
+.hero-btn.primary {
+  background: linear-gradient(135deg, white, #dcdcff);
+  color: black;
+}
+
+.hero-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 50px rgba(155,140,255,.35);
+}
+
+.hero-btn.secondary {
+  border: 1px solid rgba(255,255,255,.25);
+  color: white;
+}
+
+.hero-btn.secondary:hover {
+  background: white;
+  color: black;
+  transform: translateY(-3px);
+}
+
+/* SECTIONS */
+.experience, .tools, .projects {
+  padding: 120px 10%;
+}
+
+.section-title {
+  font-size: 64px;
   font-weight: 800;
   margin-bottom: 60px;
 }
 
-/* Contenedor vertical */
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  max-width: 900px;
+.section-title span {
+  color: rgba(255,255,255,0.12);
 }
 
-/* Tarjeta de trabajo */
-.job {
-  display: grid;
-  grid-template-columns: 150px 1fr;
-  gap: 40px;
-
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(10px);
-
-  padding: 30px;
-  border-radius: 25px;
-}
-
-.job-date {
-  color: #777;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-.job-content h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.job-content p {
-  color: #aaa;
-  line-height: 1.6;
-}
-
-/* =========================================
-   RESPONSIVE (CELULAR Y TABLET)
-========================================= */
-
-@media (max-width: 900px) {
-
-  /* Layout pasa a una sola columna */
+/* RESPONSIVE */
+@media(max-width: 900px) {
   .hero-container {
     grid-template-columns: 1fr;
     text-align: center;
-  }
-
-  /* Card deja de ser sticky en móvil */
-  .profile-card {
-    position: relative;
-    top: 0;
   }
 
   .stats {
@@ -226,268 +177,8 @@ body {
     flex-wrap: wrap;
   }
 
-  .job {
-    grid-template-columns: 1fr;
+  .hero-actions {
+    justify-content: center;
+    flex-wrap: wrap;
   }
-}
-/* =========================================
-   PREMIUM TOOLS SECTION
-========================================= */
-
-.tools {
-  padding: 80px 10%;
-}
-
-.section-title {
-  font-size: 60px;
-  font-weight: 800;
-  margin-bottom: 60px;
-}
-
-.section-title span {
-  color: rgba(255,255,255,0.15); /* segundo tono elegante */
-}
-
-/* Grid de herramientas */
-.tools-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  max-width: 900px;
-}
-
-/* Cada tool */
-.tool {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-
-  background: rgba(255,255,255,0.03);
-  padding: 25px;
-  border-radius: 20px;
-
-  transition: transform 0.3s ease, background 0.3s ease;
-}
-
-.tool:hover {
-  transform: translateY(-5px);
-  background: rgba(255,255,255,0.06);
-}
-
-/* Icono cuadrado */
-.tool-icon {
-  width: 55px;
-  height: 55px;
-
-  background: rgba(255,255,255,0.08);
-  border-radius: 15px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 24px;
-}
-
-/* Textos */
-.tool h3 {
-  font-size: 18px;
-}
-.tool .logos{
-    width: 50px;
-}
-.tool p {
-  font-size: 14px;
-  color: #aaa;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .tools-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* =========================================
-   PROJECTS SECTION
-========================================= */
-
-.projects {
-  padding: 80px 10%;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 40px;
-  max-width: 1000px;
-}
-
-.project-card {
-  background: rgba(255,255,255,0.03);
-  padding: 30px;
-  border-radius: 25px;
-  transition: 0.3s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-5px);
-  background: rgba(255,255,255,0.06);
-}
-
-.project-card h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.project-card p {
-  color: #aaa;
-  line-height: 1.6;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-}
-/* Botón de proyectos */
-.project-btn {
-  display: inline-block;
-  margin-top: 20px;
-
-  padding: 10px 20px;
-  border-radius: 12px;
-
-  background: rgba(255,255,255,0.08);
-  color: white;
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 500;
-
-  transition: all 0.3s ease;
-}
-
-.project-btn:hover {
-  background: white;
-  color: black;
-  transform: translateY(-2px);
-}
-
-
-.page {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  min-height: 100vh;
-  opacity: 0;
-  transform: translateY(30px);
-  pointer-events: none;
-  transition: all 0.6s ease;
-}
-
-.page.active {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-
-/* Estilo fotografía */
-.photo-portfolio {
-  padding: 160px 10%;
-}
-
-.photo-portfolio h1 {
-  font-size: 70px;
-  font-weight: 800;
-  margin-bottom: 60px;
-}
-
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 25px;
-}
-
-.photo-grid img {
-  width: 100%;
-  border-radius: 20px;
-  transition: 0.4s ease;
-}
-
-.photo-grid img:hover {
-  transform: scale(1.03);
-}
-/* === CAROUSEL FOTOGRAFÍA === */
-
-.carousel {
-  margin-top: 60px;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 20px;
-}
-
-.carousel-track {
-  width: 600px;
-  max-width: 90vw;
-  position: relative;
-  overflow: hidden;
-}
-
-.slide {
-  display: none;
-  animation: fade 0.6s ease;
-}
-
-.slide.active {
-  display: block;
-}
-
-.slide img {
-  width: 100%;
-  border-radius: 25px;
-  box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-}
-
-.caption {
-  margin-top: 15px;
-  background: rgba(255,255,255,0.05);
-  padding: 15px 20px;
-  border-radius: 18px;
-  backdrop-filter: blur(10px);
-}
-
-.caption h4 {
-  font-size: 16px;
-  margin-bottom: 5px;
-}
-
-.caption p {
-  font-size: 14px;
-  color: #aaa;
-}
-
-/* Botones */
-.nav-btn {
-  background: rgba(255,255,255,0.08);
-  border: none;
-  color: white;
-  font-size: 30px;
-  padding: 10px 18px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.nav-btn:hover {
-  background: white;
-  color: black;
-}
-
-/* Animación */
-@keyframes fade {
-  from {opacity: 0; transform: scale(0.98);}
-  to {opacity: 1; transform: scale(1);}
 }
