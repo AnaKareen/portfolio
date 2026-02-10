@@ -23,6 +23,9 @@ function renderGallery() {
     fig.addEventListener("click", () => openViewer(i));
     gallery.appendChild(fig);
   });
+
+  // Espera un momento a que carguen imágenes para balancear layout
+  setTimeout(balanceGallery, 400);
 }
 
 function openViewer(i) {
@@ -48,7 +51,7 @@ document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") closeViewer();
 });
 
-/* 👇 ESTO VA AQUÍ ABAJO */
+/* 👉 Detecta proporción al cargar cada IMG */
 document.addEventListener("load", (e) => {
   if (e.target.tagName === "IMG") {
     const img = e.target;
@@ -66,3 +69,28 @@ document.addEventListener("load", (e) => {
     }
   }
 }, true);
+
+/* 👉 Balance editorial: evita panorámica + panorámica seguidas */
+function balanceGallery() {
+  const gallery = document.getElementById("photoGallery");
+  const items = Array.from(gallery.children);
+
+  let lastWasLandscape = false;
+
+  for (let i = 0; i < items.length - 1; i++) {
+    const current = items[i];
+    const next = items[i + 1];
+
+    if (current.classList.contains("landscape")) {
+      if (lastWasLandscape && next) {
+        // intercambia para evitar 2 panorámicas seguidas
+        gallery.insertBefore(next, current);
+        lastWasLandscape = false;
+      } else {
+        lastWasLandscape = true;
+      }
+    } else {
+      lastWasLandscape = false;
+    }
+  }
+}
