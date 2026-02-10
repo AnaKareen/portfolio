@@ -562,3 +562,64 @@ body {
     padding: 25px;
   }
 }
+/* =========================================
+   HERO BUTTONS (RECUPERAR ESTILO PREMIUM)
+========================================= */
+
+.hero-actions {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 14px 34px;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 14px;
+  letter-spacing: .3px;
+  transition: all .35s ease;
+  backdrop-filter: blur(10px);
+}
+
+/* Botón principal */
+.hero-btn.primary {
+  background: linear-gradient(135deg, #ffffff, #dcdcff);
+  color: #000;
+  box-shadow: 0 10px 30px rgba(255,255,255,0.15);
+}
+
+.hero-btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(255,255,255,0.25);
+}
+
+/* Botón secundario */
+.hero-btn.secondary {
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  background: rgba(255,255,255,0.03);
+}
+
+.hero-btn.secondary:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-3px);
+}
+/* Asegura que el hero sea un bloque claro */
+.hero-wrap {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* La card siempre a la izquierda */
+.hero-container {
+  align-items: flex-start;
+}
+
+/* Opcional: evita que el sticky se vea raro al llegar a secciones largas */
+.profile-card {
+  align-self: flex-start;
+}
